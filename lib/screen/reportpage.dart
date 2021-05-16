@@ -26,10 +26,9 @@ class _ReportPageState extends State<ReportPage> {
         body:
         Center (
           child: TableCalendar(
-            startDay: DateTime.utc(2010, 10, 16),
-            endDay: DateTime.utc(2030, 3, 14),
-            initialSelectedDay: DateTime.now(),
-            calendarController: null,
+            firstDay: DateTime.utc(2010, 10, 16),
+            lastDay: DateTime.utc(2030, 3, 14),
+            focusedDay: DateTime.now(),
           ),
         )
     );
