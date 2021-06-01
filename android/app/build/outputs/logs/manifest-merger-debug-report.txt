@@ -6,8 +6,9 @@ INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/m
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/main/AndroidManifest.xml:1:1-41:12
 MERGED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/main/AndroidManifest.xml:1:1-41:12
 MERGED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:path_provider] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:add_2_calendar] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/add_2_calendar/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-auth:20.0.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/6c36ee46c3bd8a692637bbddce91c1bd/jetified-firebase-auth-20.0.1/AndroidManifest.xml:17:1-83:12
@@ -39,8 +40,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/GiaLePhuongg/.
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/779415cbe07883dad2a910885acd1a2a/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/a39adc0ed5996d152d5322c62e92e55d/jetified-firebase-components-16.1.0/AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/f68d88153fad4b06f2b02635801d201d/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
-MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/1b919a2a58badc61a3de65d4486deaa1/jetified-protolite-well-known-types-17.1.1/AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.28.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/289acafbabb5e968fae411bc8bf50bfc/jetified-grpc-android-1.28.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/1b919a2a58badc61a3de65d4486deaa1/jetified-protolite-well-known-types-17.1.1/AndroidManifest.xml:2:1-11:12
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/debug/AndroidManifest.xml:1:1-7:12
@@ -62,10 +63,10 @@ application
 ADDED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/main/AndroidManifest.xml:3:4-40:19
 MERGED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [com.google.firebase:firebase-auth:20.0.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/6c36ee46c3bd8a692637bbddce91c1bd/jetified-firebase-auth-20.0.1/AndroidManifest.xml:26:5-81:19
@@ -148,10 +149,12 @@ INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/m
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/main/AndroidManifest.xml
 MERGED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:add_2_calendar] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/add_2_calendar/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
@@ -214,10 +217,10 @@ MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/GiaLePhuongg
 MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/a39adc0ed5996d152d5322c62e92e55d/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/f68d88153fad4b06f2b02635801d201d/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/f68d88153fad4b06f2b02635801d201d/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/1b919a2a58badc61a3de65d4486deaa1/jetified-protolite-well-known-types-17.1.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/1b919a2a58badc61a3de65d4486deaa1/jetified-protolite-well-known-types-17.1.1/AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.28.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/289acafbabb5e968fae411bc8bf50bfc/jetified-grpc-android-1.28.0/AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.28.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/289acafbabb5e968fae411bc8bf50bfc/jetified-grpc-android-1.28.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/1b919a2a58badc61a3de65d4486deaa1/jetified-protolite-well-known-types-17.1.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/1b919a2a58badc61a3de65d4486deaa1/jetified-protolite-well-known-types-17.1.1/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/debug/AndroidManifest.xml
 INJECTED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
@@ -238,10 +241,10 @@ MERGED from [com.google.firebase:firebase-database:19.6.0] /Users/GiaLePhuongg/.
 		ADDED from /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/android/app/src/debug/AndroidManifest.xml:6:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+MERGED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [com.google.firebase:firebase-auth:20.0.1] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/6c36ee46c3bd8a692637bbddce91c1bd/jetified-firebase-auth-20.0.1/AndroidManifest.xml:74:9-80:19
@@ -266,18 +269,18 @@ ADDED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/bui
 		ADDED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_auth] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
-ADDED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
-	android:value
-		ADDED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
-	android:name
-		ADDED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar
 ADDED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
 		ADDED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_database] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-127
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
+ADDED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:cloud_firestore] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
 ADDED from [:firebase_core] /Users/GiaLePhuongg/Desktop/MQTT/Multidisproject/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
