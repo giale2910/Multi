@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:multidisproject_2/screen/loginpage.dart';
-import 'package:multidisproject_2/screen/homepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-  mainAlbumImage() {
+
+header(context) {
   return Container(
     width: double.infinity,
     height: 300,
@@ -20,7 +16,10 @@ import 'package:firebase_core/firebase_core.dart';
         bottomLeft: Radius.circular(30),
         bottomRight: Radius.circular(30),
       ),
-      color: Colors.cyan,
+      // color: Colors.cyan,
+      color:Theme.of(context).primaryColor,
+      // color: Colors.amber,
+      //  color: Colors.pink,
     ),
     padding: EdgeInsets.only(
       left: 30,
@@ -44,6 +43,7 @@ import 'package:firebase_core/firebase_core.dart';
         Text('LIBRARY',
         style: GoogleFonts.lato(
             textStyle: TextStyle(
+              // color: Colors.cyan ,
               color: Colors.yellow ,
               fontSize: 40.0,
               fontWeight: FontWeight.w900,
@@ -63,14 +63,14 @@ class MainHomePage extends StatefulWidget {
 
 class _MainHomePageState extends State<MainHomePage> {
   var lightRoom1 =''  ;
-  var lightRoom2 ='10'  ;
-  var lightRoom3 ='10 ' ;
-  var lightRoom4 ='10 ' ;
+  var lightRoom2 ='99'  ;
+  var lightRoom3 ='99 ' ;
+  var lightRoom4 ='99 ' ;
 
   var noiseRoom1 =''  ;
-  var noiseRoom2 ='10'  ;
-  var noiseRoom3 ='10'  ;
-  var noiseRoom4 ='10'  ;
+  var noiseRoom2 ='100'  ;
+  var noiseRoom3 ='100'  ;
+  var noiseRoom4 ='100'  ;
 
 rowRoom(context, room) {
   var lightRoom = '';
@@ -100,18 +100,16 @@ rowRoom(context, room) {
         noiseRoom = noiseRoom4;
         link = "assets/listening.png";
        } 
-      break; 
-     
+      break;   
    } 
+
   return Container(
-    
     width: double.infinity,
     height: 138,
     decoration: new BoxDecoration(
       color: Colors.grey.shade100.withOpacity(1),
       shape: BoxShape.rectangle,
-      borderRadius: new BorderRadius.circular(20.0),
-      
+      borderRadius: new BorderRadius.circular(20.0),  
       boxShadow: [
         BoxShadow(
           color: Colors.grey.shade300,
@@ -119,8 +117,7 @@ rowRoom(context, room) {
           spreadRadius: 2.0,  //extend the shadow
           offset: Offset(
             5,                // Move to right 10  horizontally
-            5.0,   
-                      // Move to bottom 10 Vertically
+            5.0,                 // Move to bottom 10 Vertically
           ),
         )
       ],
@@ -130,24 +127,20 @@ rowRoom(context, room) {
       left: 25,
       right: 25,
     ),
+
     padding: EdgeInsets.all(20),
     child: Column(
       children: <Widget>[ 
        Row (
           children: <Widget>[
+
             Expanded(
               child: Container(
                 child: Column(
                   children: <Widget>[
-                    // Icon(
-                    //   Icons.computer,
-                    //   color: Colors.pink,
-                    //   size: 75.0,
-                    // ),
                     Image.asset(link, width: 75,height:75), 
                     SizedBox(height: 5.0),
-                    Text('ROOM ${room}',  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15.0,),),
-                  
+                    Text('ROOM ${room}',  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15.0,),),  
                   ],
                 ),
               ),
@@ -177,6 +170,7 @@ rowRoom(context, room) {
 
             ),
             SizedBox(width: 20.0),
+
             Expanded(
               child: Container(
                 margin:  EdgeInsets.symmetric(vertical: 10),
@@ -220,24 +214,23 @@ return Container(
        rowRoom(context, 3),
        rowRoom(context, 4),
        Container(
-                height: 60,
-                child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Container (
-                  child:FlatButton (
-                    color: Colors.orangeAccent,
-                    minWidth: MediaQuery. of(context).size.width*0.25,
-                    shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30.0) ),
-                    onPressed: ()  async {
-                      await FirebaseAuth.instance.signOut();
-                    },
-                    child: Text("Sign out", style: TextStyle (fontSize: 20, color: Colors.white),),
-                  ),
-                ),
+          height: 60,
+          child: Align(
+          alignment: FractionalOffset.bottomCenter,
+          child: Container (
+            child:FlatButton (
+              color: Colors.orangeAccent,
+              minWidth: MediaQuery. of(context).size.width*0.25,
+              shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30.0) ),
+              onPressed: ()  async {
+                await FirebaseAuth.instance.signOut();
+              },
+              child: Text("Sign out", style: TextStyle (fontSize: 20, color: Colors.white),),
+            ),
+          ),
 
-              ),
-              ),
-              
+        ),
+        ),             
       ]
     )
 );
@@ -258,35 +251,15 @@ return Container(
                     body: SingleChildScrollView(
                     child: Stack(
                       children: <Widget>[
-                        mainAlbumImage(),
+                        header(context),
                         _rowRoom(context)
                       
                       ],
                     ),
-              )
+                    )
                   );
-
-
-
               });
-
-  }
-  
-  
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SingleChildScrollView(
-//       child: Stack(
-//         children: <Widget>[
-//           mainAlbumImage(),
-//           _rowRoom(context)
-         
-//         ],
-//       ),
-// )
-//     );
-//   }
+        }
 }
   
  

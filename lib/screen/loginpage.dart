@@ -111,7 +111,6 @@ loginSection(context, isLogin,function) {
             ),
           ),
           gradient: LinearGradient(
-
             colors:isLogin ? <Color>[Colors.blueAccent,Colors.cyan, Colors.yellow] : <Color>[Colors.cyan, Colors.yellow] ,
           ),
           onPressed: function
