@@ -31,14 +31,17 @@ class _SettingPageState extends State<SettingPage> {
 
   double _currentsoundValue = 0;
   RangeValues  _currentRangeValues =RangeValues (40,80);
+  var _currentAutoSet = "1";
 
   final databaseReferenceLightMin = FirebaseFirestore.instance.collection('room1_input').doc('light_threshold_min');
   final databaseReferenceLightMax = FirebaseFirestore.instance.collection('room1_input').doc('light_threshold_max');
   final databaseReferenceBuzzer = FirebaseFirestore.instance.collection('room1_input').doc('noise_threshold');
+  final databaseReferenceAuto = FirebaseFirestore.instance.collection('room1_input').doc('set_auto');
 
   double sound = 1.0; 
   double lightMin = 1.0;
   double lightMax = 2.0;
+  var autoSet = "1";
 Widget _themeColorContainer(String colorName, Color color) {
     return Container(
       width: double.infinity,
@@ -52,28 +55,29 @@ Widget _themeColorContainer(String colorName, Color color) {
     );
   }
   themeChange(){
-return     Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                
-                   Column(
-                     children:[
-                        IconButton(
-                      
-                      icon: const Icon(Icons.favorite, size:40),
-                      color: _customTheme.primaryColor,
-                          onPressed: () => _openDialog("Primary Color",
-                                  _customTheme.primaryColor, true),
-                    ),
-                     SizedBox(height:10),
-                     ]
-                   ),
-                    SizedBox(width:70),
-                    ThemeButton(buttonThemeData: _customTheme),
-                
-              ],
-            );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        
+            Column(
+              children:[
+                IconButton(
+              
+              icon: const Icon(Icons.favorite, size:40),
+              color: _customTheme.primaryColor,
+                  onPressed: () => _openDialog("Primary Color",
+                          _customTheme.primaryColor, true),
+            ),
+              SizedBox(height:10),
+              ]
+            ),
+            SizedBox(width:70),
+            ThemeButton(buttonThemeData: _customTheme),
+        
+      ],
+    );
 }
+
 
    void _openDialog(String title, Color currentColor, bool primaryColor) {
     showDialog(
@@ -101,64 +105,50 @@ return     Row(
       },
     );
   }
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream:FirebaseFirestore.instance.collection("room1_input").snapshots(includeMetadataChanges: true),
-      builder:(BuildContext context,
-              AsyncSnapshot snapshot){
-                
-                if (snapshot.connectionState == ConnectionState.active){
-                    lightMin = double.parse(snapshot.data.docs[1].data()['data']);
-                    lightMax = double.parse(snapshot.data.docs[0].data()['data']);
-                    sound = double.parse(snapshot.data.docs[3].data()['data']);
-                }
-  
-                if (sound != _currentsoundValue){
-                  _currentsoundValue = sound;
-                }
-           
-                if (lightMin != _currentRangeValues.start || lightMax != _currentRangeValues.end){
-                  _currentRangeValues = RangeValues(lightMin,lightMax);
-                }
     buttonAuto(){
-      return  Row(
-                children:<Widget> [
-                  Expanded(
-                    child: Text (" Automatic Control", textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
-                    ),
-                  ),
-                  SizedBox( width: 50, height: 30,),
-                  Expanded (
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.topLeft,
-                      child: FlutterSwitch(
-                        width: 80.0,
-                        height: 40.0,
-                        valueFontSize: 10.0,
-                        toggleSize: 25.0,
-                        value: status,
-                        borderRadius: 30.0,
-                        padding: 8.0,
-                        activeColor: Colors.amber,
-                        // activeTextColor: Colors.black,
-                      
-                        showOnOff: true,
-                        onToggle: (val) {
-                          setState(() {
-                            status = val;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-
-                ],
-              );
-    }      
+      return Row(
+        children:<Widget> [
+          Expanded(
+            child: Text (" Automatic Control", textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+            ),
+          ),
+          SizedBox( width: 50, height: 30,),
+          Expanded (
+            child: Container(
+              margin: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
+              alignment: Alignment.topLeft,
+              child: FlutterSwitch(
+                width: 80.0,
+                height: 40.0,
+                valueFontSize: 10.0,
+                toggleSize: 25.0,
+                value: _currentAutoSet == "1"? true:false,
+                borderRadius: 30.0,
+                padding: 8.0,
+                activeColor: Colors.amber,
+                // activeTextColor: Colors.black,
+              
+                showOnOff: true,
+                onToggle: (val) {
+                  setState(() {
+                    //status = val;
+                    if (val){
+                      _currentAutoSet = "1";
+                      databaseReferenceAuto.update({'data':_currentAutoSet });
+                    }else{
+                      _currentAutoSet = "0";
+                      databaseReferenceAuto.update({'data': _currentAutoSet});
+                    }
+                  });
+                },
+              ),
+            ),
+          ),
+        ],
+      );
+    } 
     lightSlider(){
       return Column(children:[
          Container(
@@ -245,9 +235,7 @@ return     Row(
                 
                     },
                   ),
-            ),
-        
-           
+            ), 
       ]);
     }
     themeBox(){
@@ -262,109 +250,92 @@ return     Row(
            
       ]);
     }
-    header1() {
-  return Container(
-    margin: EdgeInsets.only(
-      left:10,
-      right:10,
-      top:30,
-      bottom: 10
+        header1() {
+    return Container(
+        margin: EdgeInsets.only(
+          left:10,
+          right:10,
+          top:30,
+          bottom: 10
 
-    ),
-    width: double.infinity,
-    height: 650,//560,
-    decoration: BoxDecoration(
-      shape: BoxShape.rectangle,
-      border: Border.all(color: Colors.black, width: 2),
-       borderRadius: BorderRadius.circular(20),
-      // color: Colors.black,
-       color: Colors.white,
-      
-
-      
+        ),
+        width: double.infinity,
+        height: 650,//560,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          border: Border.all(color: Colors.black, width: 2),
+          borderRadius: BorderRadius.circular(20),
+          // color: Colors.black,
+          color: Colors.white,
     ),
     padding: EdgeInsets.only(
       left: 0,
       top: 50,
     ),
    child: Column (
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
 
-              Row(children: [
-                 SizedBox(width:30),
-                Text(
-              'Settings',
-              style: TextStyle(
-                fontSize: 40,
-                // color: Colors.white,
-                color: Colors.black,
-                  fontWeight: FontWeight.w900,
-              ),
-            ),
-      
-              ],),
-              
-              SizedBox(height:15),
-              buttonAuto(),
-              Container(height: 20, child: Divider(color: Colors.grey), margin: const EdgeInsets.only( left: 15.0,right: 15.0),),
+          Row(children: [
+              SizedBox(width:30),
+            Text(
+          'Settings',
+          style: TextStyle(
+            fontSize: 40,
+            // color: Colors.white,
+            color: Colors.black,
+              fontWeight: FontWeight.w900,
+          ),
+        ),
+  
+          ],),
+          
+          SizedBox(height:15),
+          buttonAuto(),
+          Container(height: 20, child: Divider(color: Colors.grey), margin: const EdgeInsets.only( left: 15.0,right: 15.0),),
 
-              lightSlider(),
-              Container(height: 40, child: Divider(color: Colors.grey), margin: const EdgeInsets.only( left: 15.0,right: 15.0),),
+          lightSlider(),
+          Container(height: 40, child: Divider(color: Colors.grey), margin: const EdgeInsets.only( left: 15.0,right: 15.0),),
 
-              noiseSlider(),
-              Container(height: 30, child: Divider(color: Colors.grey), margin: const EdgeInsets.only( left: 15.0,right: 15.0),),
+          noiseSlider(),
+          Container(height: 30, child: Divider(color: Colors.grey), margin: const EdgeInsets.only( left: 15.0,right: 15.0),),
 
-       themeBox(),
-
- 
-            ],
+          themeBox(),
+        ],
           ),
   );
 }
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream:FirebaseFirestore.instance.collection("room1_input").snapshots(includeMetadataChanges: true),
+      builder:(BuildContext context,
+              AsyncSnapshot snapshot){      
+              if (snapshot.connectionState == ConnectionState.active){
+                  lightMin = double.parse(snapshot.data.docs[1].data()['data']);
+                  lightMax = double.parse(snapshot.data.docs[0].data()['data']);
+                  sound = double.parse(snapshot.data.docs[3].data()['data']);
+                  autoSet = snapshot.data.docs[5].data()['data'];
+                  _currentsoundValue = sound;
+                  _currentRangeValues = RangeValues(lightMin,lightMax);
+                  _currentAutoSet = autoSet;
+              }
 
-    return Scaffold(
-      backgroundColor:Theme.of(context).primaryColor,
-      body:
-          Stack(children: <Widget>[
-            // header(context),
-            header1(),
+          return Scaffold(
+            backgroundColor:Theme.of(context).primaryColor,
+            body:
+                Stack(children: <Widget>[
+                  // header(context),
+                  header1(),
 
-            
-          ],)
-    );
-    }
+                  
+                ],)
+          );
+          }
     );
   }
 }
 
-// header(context) {
-//   return Container(
-//     width: double.infinity,
-//     height:700,
-//     decoration: BoxDecoration(
-//       shape: BoxShape.rectangle,
-      
-//       // color: Colors.cyan,
-//       gradient: LinearGradient(
-//           begin: Alignment.topCenter,
-//           end: Alignment.bottomCenter,
-   
-//             colors: [ 
-         
-//             Theme.of(context).primaryColor,
-//                         Theme.of(context).primaryColor
-
-//                   ]
-//       )
-//     ),
-//     padding: EdgeInsets.only(
-//       left: 30,
-//       top: 50,
-//     ),
-    
-//   );
-// }
 
 
 class GradientRectSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {

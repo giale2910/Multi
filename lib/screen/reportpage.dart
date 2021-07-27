@@ -33,6 +33,8 @@ class _LineChartSample2State extends State<ReportPage> {
   ];
  
   bool showAvg = false;
+  bool showAvgNoise = false;
+  bool showAvgLight = false;
 
   var dateChosen = DateFormat('yyyy-MM-dd').format(DateTime.now());
   // var dateChosen  = '2021-06-04';
@@ -84,8 +86,9 @@ class _LineChartSample2State extends State<ReportPage> {
         ),);
   }
 
-  stream(type){
+  stream(type, room){
     var typ = type == 'Noise' ? "room1_noise_record":"room1_light_record";
+   
       return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance.collection(typ).snapshots(includeMetadataChanges: true),
       builder: (BuildContext _context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -114,7 +117,7 @@ class _LineChartSample2State extends State<ReportPage> {
                 if (int.parse(e[1]) < smallest_value) {smallest_value = int.parse(e[1])},
               });
 
-          final List<FlSpot> values = noise_list
+          List<FlSpot> values = noise_list
             .map((datum) => FlSpot(DateTime.parse(datum[0]).millisecondsSinceEpoch.toDouble(),double.parse(datum[1])))
             .toList()
             ;
@@ -206,7 +209,17 @@ class _LineChartSample2State extends State<ReportPage> {
       ],
     );
   }
-  drawChart(){
+  drawChart(room){
+    if (type =="Noise"){
+      showAvg = showAvgNoise;
+    }else{
+      showAvg = showAvgLight;
+    }
+    if (room != 1){
+      values = [['${dateChosen} 00:00:01','0'],['${dateChosen} 10:30:00','0']]
+      .map((datum) => FlSpot(DateTime.parse(datum[0]).millisecondsSinceEpoch.toDouble(),double.parse(datum[1])))
+            .toList();
+    }
     return AspectRatio(
           aspectRatio: 1.70,
           child: Container(
@@ -219,6 +232,7 @@ class _LineChartSample2State extends State<ReportPage> {
             Padding(
               padding: const EdgeInsets.only(right: 18.0, left: 12.0, top: 18, bottom: 12),
               child: LineChart(
+                
                 showAvg ? mainData(values_avg) : mainData(values),
               ),
             ),
@@ -227,6 +241,10 @@ class _LineChartSample2State extends State<ReportPage> {
         );
   }
   chartInfo(){
+    if (room != 1){
+      smallest_value = 0;
+      largest_value = 0;
+    }
      return Column(
               children:[
                 Row(children:[
@@ -276,84 +294,31 @@ class _LineChartSample2State extends State<ReportPage> {
                             side: BorderSide(color: Colors.black, width: 2),
                             shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)),),
                           ),
-                          onPressed: () {setState(() { showAvg = !showAvg;});
+                          onPressed: () {setState(() { 
+                            // showAvg = !showAvg;
+
+                            if (type =="Noise"){
+                              showAvgNoise = !showAvgNoise;
+                            }else{
+                              showAvgLight = !showAvgLight;
+                            }
+                            
+                            });
                         }
-                    )
-                    
+                    ) 
                   ]
                 ),
-              drawChart()
+              drawChart(room)
               ]
             );
   }
-  buttonAvg(){
-    return  SizedBox(
-          width: 60,
-          height: 34,
-          child: 
-          TextButton(
-            onPressed: () {
-              setState(() {
-                showAvg = !showAvg;
-              });
-            },
-            child: Text(
-              'avg',
-              style: TextStyle(
-                  fontSize: 12, color: showAvg ? Colors.white.withOpacity(0.5) : Colors.red),
-            ),
-          ),
-          //  return OutlinedButton(
-          //     child: Text('Average'),
-          //     style: OutlinedButton.styleFrom(
-          //       primary: Colors.black,
-          //       backgroundColor: buttonThemeData.primaryColor,
-          //       side: BorderSide(color: Colors.black, width: 2),
-          //       //  primary:  Colors.black ,
-          //       // backgroundColor: Colors.white,
-          //       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)),),
-          //     ),
-          //     onPressed: () => themeNotifier.setTheme(buttonThemeData),
-          //   );
-        );
-        }
+ 
         return  chartInfo();
       },  
     );
   }
-
-  @override
-  Widget build(BuildContext context) {
-
-        return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: DefaultTabController(
-          length: 4,
-          child:  Scaffold(
-            appBar:  AppBar(
-              backgroundColor: Theme.of(context).primaryColor,
-
-              flexibleSpace: new Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-              new TabBar(
-                indicatorColor: Colors.amber,
-                indicatorWeight:7,
-                labelColor: Colors.black,
-                tabs: [
-                  new Tab(child:  Column(children:[ Image.asset("assets/monitor_1.png", width: 25,height:25),Text('Room 1')])),
-                  new Tab(child:  Column(children:[ Image.asset("assets/read.png", width: 25,height:25),Text('Room 2')])),
-                  new Tab(child:  Column(children:[ Image.asset("assets/conversation.png", width: 25,height:25),Text('Room 3')])),
-                  new Tab(child:  Column(children:[ Image.asset("assets/listening.png", width: 25,height:25),Text('Room 4')])),
-
-                ],
-              ),
-            ],
-          ),
-            ),
-            body: TabBarView(
-              children: [
-                SingleChildScrollView(
+wholeView(room){
+  return SingleChildScrollView(
           child: Column(
             children:[
         
@@ -416,15 +381,48 @@ class _LineChartSample2State extends State<ReportPage> {
                 ]
               ),
            
-              stream('Noise'),
-              stream('Light'),
+              stream('Noise', room),
+              stream('Light', room),
 
             ]
           )
-        ),
-                 Text('Hello'),
-                 Text('Hello'),
-                 Text('Hello'),
+        );
+}
+  @override
+  Widget build(BuildContext context) {
+
+        return new MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: DefaultTabController(
+          length: 4,
+          child:  Scaffold(
+            appBar:  AppBar(
+              backgroundColor: Theme.of(context).primaryColor,
+
+              flexibleSpace: new Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+              new TabBar(
+                indicatorColor: Colors.amber,
+                indicatorWeight:7,
+                labelColor: Colors.black,
+                tabs: [
+                  new Tab(child:  Column(children:[ Image.asset("assets/monitor_1.png", width: 25,height:25),Text('Room 1')])),
+                  new Tab(child:  Column(children:[ Image.asset("assets/read.png", width: 25,height:25),Text('Room 2')])),
+                  new Tab(child:  Column(children:[ Image.asset("assets/conversation.png", width: 25,height:25),Text('Room 3')])),
+                  new Tab(child:  Column(children:[ Image.asset("assets/listening.png", width: 25,height:25),Text('Room 4')])),
+
+                ],
+              ),
+            ],
+          ),
+            ),
+            body: TabBarView(
+              children: [
+                wholeView(1),
+                wholeView(2),
+                wholeView(3),
+                wholeView(4),
                
             
               ],

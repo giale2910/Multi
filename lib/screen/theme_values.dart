@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// ----  Blue Theme  ----
 final bluePrimary         = Color(0xFF3F51B5);
 final blueAccent          = Color(0xFFFF9800);
 final blueBackground      = Color(0xFFFFFFFF);
-final blueTheme = ThemeData(
-    primaryColor: bluePrimary,
+final blueTheme =  ThemeData(
+    primaryColor:  Color(Colors.cyan.value),
     accentColor: blueAccent,
     backgroundColor: blueBackground
 );

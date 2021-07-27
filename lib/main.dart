@@ -5,13 +5,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:multidisproject_2/screen/homepage.dart';
 import 'package:multidisproject_2/screen/loginpage.dart';
-import 'package:multidisproject_2/screen/controlpage.dart';
-
 import 'package:provider/provider.dart';
 import 'package:multidisproject_2/screen/theme_values.dart';
 import 'package:multidisproject_2/screen/theme_notifier.dart';
+import 'package:provider/provider.dart';
 
-// import 'package:provider/provider.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -39,7 +38,7 @@ class _MyApp extends StatelessWidget {
       title: "Flutter Dynamic Theme",
       theme: themeNotifier.getTheme(),
       home: LandingPage(),
-    );
+    ); 
   }
 }
 
@@ -75,7 +74,7 @@ class LandingPage extends StatelessWidget {
           }
           return Scaffold(
           body: Center (
-          child: Text("Checking Authentication../")
+          child: Text("")
           )
           );
         },

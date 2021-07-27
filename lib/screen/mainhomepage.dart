@@ -253,7 +253,6 @@ return Container(
                       children: <Widget>[
                         header(context),
                         _rowRoom(context)
-                      
                       ],
                     ),
                     )

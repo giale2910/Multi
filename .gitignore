@@ -1,3 +1,5 @@
+#flutter run --no-sound-null-safety
+
 # Miscellaneous
 *.class
 *.log
